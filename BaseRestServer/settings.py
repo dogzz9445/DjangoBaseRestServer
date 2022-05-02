@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import importlib
+secret = importlib.find_loader('.secret')
+found_secret = secret is not None
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ys(@7g4!a1a4#gqchpm9299@a*dfugh$)ezng$9ri=8cyq_6ix'
+if found_secret == False:
+    SECRET_KEY = 'django-insecure-ys(@7g4!a1a4#gqchpm9299@a*dfugh$)ezng$9ri=8cyq_6ix'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     
     'api',
+    'scenario',
 ]
 
 MIDDLEWARE = [
