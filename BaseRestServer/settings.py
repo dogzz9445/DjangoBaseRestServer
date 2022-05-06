@@ -29,7 +29,7 @@ if found_secret == False:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django_windows_tools',
     
     'colorfield',
     'corsheaders',
@@ -81,8 +83,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BaseRestServer.wsgi.application'
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8080',
-                         'http://localhost:8080'] 
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000',
+                         'http://localhost:8000'] 
 CORS_ALLOW_CREDENTIALS = True
 
 
