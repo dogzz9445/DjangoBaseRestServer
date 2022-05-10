@@ -23,13 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = None
 if found_secret == False:
     SECRET_KEY = 'django-insecure-ys(@7g4!a1a4#gqchpm9299@a*dfugh$)ezng$9ri=8cyq_6ix'
+else:
+    SECRET_KEY = secret.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django_windows_tools',
     
     'colorfield',
     'corsheaders',
@@ -81,8 +86,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BaseRestServer.wsgi.application'
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8080',
-                         'http://localhost:8080'] 
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000',
+                         'http://localhost:8000'] 
 CORS_ALLOW_CREDENTIALS = True
 
 
