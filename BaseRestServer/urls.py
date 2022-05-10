@@ -14,15 +14,43 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from email.mime import base
+from django import forms
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
 from django.conf.urls.static import static
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers, serializers, viewsets, response, permissions
+from django.shortcuts import render
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.parsers import FileUploadParser
+import os
 
 from api.views import *
 from scenario.views import *
+
+def handle_uploaded_file(filename, file):
+    with open(filename, 'wb+') as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)
+            
+@permission_classes((permissions.AllowAny,))
+class UploadViewSet(viewsets.ViewSet):
+    parser_classes = [FileUploadParser]
+    media_root = settings.MEDIA_ROOT
+
+    def list(self, request):
+        filelist = os.listdir(self.media_root)
+        return response.Response('Get API')
+
+    def put(self, request, filename, format=None):
+        file_obj = request.data['file']
+        # ...
+        # do some stuff with uploaded file
+        # ...
+        handle_uploaded_file(self.media_root + '/' + filename, file_obj)
+
+        return response.Response(status=204)
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -40,6 +68,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'schedules', ScheduleViewSet)
 router.register(r'upload', UploadViewSet, basename='upload')
+router.register(r'media', UploadViewSet, basename='media')
 router.register(r'scenario/interactionarea', InteractionAreaViewSet)
 
 urlpatterns = [
