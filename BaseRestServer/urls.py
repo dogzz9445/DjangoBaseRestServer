@@ -41,7 +41,7 @@ class UploadViewSet(viewsets.ViewSet):
 
     def list(self, request):
         filelist = os.listdir(self.media_root)
-        return response.Response('Get API')
+        return response.Response(filelist)
 
     def put(self, request, filename, format=None):
         file_obj = request.data['file']
@@ -68,10 +68,10 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'schedules', ScheduleViewSet)
 router.register(r'upload', UploadViewSet, basename='upload')
-router.register(r'media', MediaViewSet, basename='media')
-router.register(r'scenario', MediaViewSet, basename='scenario')
-router.register(r'interactionarea', MediaViewSet, basename='interactionarea')
-router.register(r'objectinfo', MediaViewSet, basename='objectinfo')
+router.register(r'media', UploadViewSet, basename='media')
+router.register(r'scenario', UploadViewSet, basename='scenario')
+router.register(r'interactionarea', UploadViewSet, basename='interactionarea')
+router.register(r'objectinfo', UploadViewSet, basename='objectinfo')
 router.register(r'scenario/interactionarea', InteractionAreaViewSet)
 
 urlpatterns = [
