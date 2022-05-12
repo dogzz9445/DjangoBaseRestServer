@@ -28,6 +28,7 @@ import os
 
 from api.views import *
 from scenario.views import *
+from firexr.views import *
 
 def handle_uploaded_file(filename, file):
     with open(filename, 'wb+') as destination:
@@ -86,7 +87,7 @@ router.register(r'unit/evaluationaction', EvaluationActionViewSet)
 router.register(r'unit/separatedscenario', SeparatedScenarioViewSet)
 router.register(r'unit/combinedscenario', CombinedScenarioViewSet)
 
-router.register(r'scenario/combinedscenario', CombinedScenarioViewSet)
+router.register(r'combinedscenario', CombinedScenarioViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

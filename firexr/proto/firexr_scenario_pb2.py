@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\252\002\017FireXR.Protobuf',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x15\x66irexr_scenario.proto\x12\x06\x46ireXR\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa2\x02\n\tTransform\x12-\n\x04Type\x18\x02 \x01(\x0e\x32\x1f.FireXR.Transform.TransformType\x12\x0c\n\x04Name\x18\x03 \x01(\t\x12\x11\n\tPositionX\x18\x04 \x01(\x02\x12\x11\n\tPositionY\x18\x05 \x01(\x02\x12\x11\n\tPositionZ\x18\x06 \x01(\x02\x12\x11\n\tRotationX\x18\x07 \x01(\x02\x12\x11\n\tRotationY\x18\x08 \x01(\x02\x12\x11\n\tRotationZ\x18\t \x01(\x02\x12\x0e\n\x06ScaleX\x18\n \x01(\x02\x12\x0e\n\x06ScaleY\x18\x0b \x01(\x02\x12\x0e\n\x06ScaleZ\x18\x0c \x01(\x02\x12\x0c\n\x04\x44\x65sc\x18\r \x01(\t\"(\n\rTransformType\x12\x0c\n\x08POSITION\x10\x00\x12\t\n\x05SCALA\x10\x01\"\x8e\x01\n\x10InteractionPoint\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x03 \x01(\t\x12$\n\tTransform\x18\x04 \x01(\x0b\x32\x11.FireXR.Transform\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x06 \x01(\t\"8\n\x08\x43utScene\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\xc0\x01\n\nObjectInfo\x12\x0c\n\x04Name\x18\x02 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x03 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x04 \x01(\t\x12\x10\n\x08\x46ileName\x18\x05 \x01(\t\x12\x1b\n\x13\x41\x63tivatedEventDelay\x18\x06 \x01(\x02\x12\x17\n\x0f\x41\x63tivateObjects\x18\x07 \x03(\r\x12\x18\n\x10\x44\x65\x61\x63tivateObject\x18\x08 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"I\n\x05Sound\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x12\n\nLoopingUse\x18\x04 \x01(\x05\x12\x0c\n\x04\x44\x65sc\x18\x05 \x01(\t\"\x84\x01\n\x07\x46\x44SFile\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x12\n\nDeviceType\x18\x04 \x01(\t\x12\x11\n\tStartTime\x18\x05 \x01(\x02\x12\x0f\n\x07\x45ndTime\x18\x06 \x01(\x02\x12\x10\n\x08\x46ileName\x18\x07 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x08 \x01(\t\"\xd3\x01\n\x07XREvent\x12)\n\x04Type\x18\x02 \x01(\x0e\x32\x1b.FireXR.XREvent.XREventType\x12\x0e\n\x06\x41\x63tion\x18\x03 \x01(\t\x12\x0e\n\x06Target\x18\x04 \x01(\t\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x12\n\nStartDelay\x18\x06 \x01(\x02\x12\x11\n\tNextDelay\x18\x07 \x01(\x02\x12\x0e\n\x06NextID\x18\x08 \x01(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"&\n\x0bXREventType\x12\t\n\x05\x45vent\x10\x00\x12\x0c\n\x08Listener\x10\x01\"N\n\x03\x46\x44S\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x11\n\tFDSFileID\x18\x03 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\x0c\n\nEvaluation\"\x12\n\x10\x45valuationAction\"\xab\x02\n\x11SeparatedScenario\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x43\x61tegory\x18\x03 \x03(\t\x12\r\n\x05Title\x18\x04 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x05 \x01(\t\x12,\n\x0eTargetFacility\x18\x06 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x14\n\x0cUseParentFDS\x18\x07 \x01(\x05\x12\x0b\n\x03\x46\x44S\x18\x08 \x01(\r\x12\x15\n\rFDSStartDelay\x18\t \x01(\x02\x12\x19\n\x11UseParentDaylight\x18\n \x01(\x05\x12\x14\n\x0c\x44\x61ylightTime\x18\x0b \x01(\x02\x12\x0f\n\x07Timeout\x18\x0c \x01(\x02\x12\x13\n\x0b\x45valuations\x18\r \x03(\r\x12\x10\n\x08XREvents\x18\x0e \x03(\r\"\xc2\x01\n\x10\x43ombinedScenario\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\r\n\x05Title\x18\x03 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x04 \x01(\t\x12,\n\x0eTargetFacility\x18\x05 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0b\n\x03\x46\x44S\x18\x06 \x01(\r\x12\x15\n\rFDSStartDelay\x18\x07 \x01(\x02\x12\x14\n\x0c\x44\x61ylightTime\x18\x08 \x01(\x02\x12\x11\n\tScenarios\x18\t \x03(\r*g\n\x0c\x46\x61\x63ilityType\x12\x14\n\x10MultiUseFacility\x10\x00\x12\x13\n\x0f\x43omplexFacility\x10\x01\x12\x13\n\x0f\x45lderlyFacility\x10\x02\x12\x17\n\x13UndergroundFacility\x10\x03\x42\x12\xaa\x02\x0f\x46ireXR.Protobufb\x06proto3'
+  serialized_pb=b'\n\x15\x66irexr_scenario.proto\x12\x06\x46ireXR\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x02\n\tTransform\x12\n\n\x02ID\x18\x01 \x01(\r\x12-\n\x04Type\x18\x02 \x01(\x0e\x32\x1f.FireXR.Transform.TransformType\x12\x0c\n\x04Name\x18\x03 \x01(\t\x12\x11\n\tPositionX\x18\x04 \x01(\x02\x12\x11\n\tPositionY\x18\x05 \x01(\x02\x12\x11\n\tPositionZ\x18\x06 \x01(\x02\x12\x11\n\tRotationX\x18\x07 \x01(\x02\x12\x11\n\tRotationY\x18\x08 \x01(\x02\x12\x11\n\tRotationZ\x18\t \x01(\x02\x12\x0e\n\x06ScaleX\x18\n \x01(\x02\x12\x0e\n\x06ScaleY\x18\x0b \x01(\x02\x12\x0e\n\x06ScaleZ\x18\x0c \x01(\x02\x12\x0c\n\x04\x44\x65sc\x18\r \x01(\t\"(\n\rTransformType\x12\x0c\n\x08POSITION\x10\x00\x12\t\n\x05SCALA\x10\x01\"\x9a\x01\n\x10InteractionPoint\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x03 \x01(\t\x12$\n\tTransform\x18\x04 \x01(\x0b\x32\x11.FireXR.Transform\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x06 \x01(\t\"D\n\x08\x43utScene\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\xcd\x01\n\nObjectInfo\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x03 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x04 \x01(\t\x12\x10\n\x08\x46ileName\x18\x05 \x01(\t\x12\x1b\n\x13\x41\x63tivatedEventDelay\x18\x06 \x01(\x02\x12\x17\n\x0f\x41\x63tivateObjects\x18\x07 \x03(\r\x12\x19\n\x11\x44\x65\x61\x63tivateObjects\x18\x08 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"U\n\x05Sound\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x12\n\nLoopingUse\x18\x04 \x01(\x05\x12\x0c\n\x04\x44\x65sc\x18\x05 \x01(\t\"\x90\x01\n\x07\x46\x44SFile\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x12\n\nDeviceType\x18\x04 \x01(\t\x12\x11\n\tStartTime\x18\x05 \x01(\x02\x12\x0f\n\x07\x45ndTime\x18\x06 \x01(\x02\x12\x10\n\x08\x46ileName\x18\x07 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x08 \x01(\t\"\xdf\x01\n\x07XREvent\x12\n\n\x02ID\x18\x01 \x01(\r\x12)\n\x04Type\x18\x02 \x01(\x0e\x32\x1b.FireXR.XREvent.XREventType\x12\x0e\n\x06\x41\x63tion\x18\x03 \x01(\t\x12\x0e\n\x06Target\x18\x04 \x01(\t\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x12\n\nStartDelay\x18\x06 \x01(\x02\x12\x11\n\tNextDelay\x18\x07 \x01(\x02\x12\x0e\n\x06NextID\x18\x08 \x01(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"&\n\x0bXREventType\x12\t\n\x05\x45vent\x10\x00\x12\x0c\n\x08Listener\x10\x01\"Z\n\x03\x46\x44S\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x11\n\tFDSFileID\x18\x03 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"&\n\nEvaluation\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\",\n\x10\x45valuationAction\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\"\xb7\x02\n\x11SeparatedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x43\x61tegory\x18\x03 \x03(\t\x12\r\n\x05Title\x18\x04 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x05 \x01(\t\x12,\n\x0eTargetFacility\x18\x06 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x14\n\x0cUseParentFDS\x18\x07 \x01(\x05\x12\x0b\n\x03\x46\x44S\x18\x08 \x01(\r\x12\x15\n\rFDSStartDelay\x18\t \x01(\x02\x12\x19\n\x11UseParentDaylight\x18\n \x01(\x05\x12\x14\n\x0c\x44\x61ylightTime\x18\x0b \x01(\x02\x12\x0f\n\x07Timeout\x18\x0c \x01(\x02\x12\x13\n\x0b\x45valuations\x18\r \x03(\r\x12\x10\n\x08XREvents\x18\x0e \x03(\r\"\xce\x01\n\x10\x43ombinedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\r\n\x05Title\x18\x03 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x04 \x01(\t\x12,\n\x0eTargetFacility\x18\x05 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0b\n\x03\x46\x44S\x18\x06 \x01(\r\x12\x15\n\rFDSStartDelay\x18\x07 \x01(\x02\x12\x14\n\x0c\x44\x61ylightTime\x18\x08 \x01(\x02\x12\x11\n\tScenarios\x18\t \x03(\r*g\n\x0c\x46\x61\x63ilityType\x12\x14\n\x10MultiUseFacility\x10\x00\x12\x13\n\x0f\x43omplexFacility\x10\x01\x12\x13\n\x0f\x45lderlyFacility\x10\x02\x12\x17\n\x13UndergroundFacility\x10\x03\x42\x12\xaa\x02\x0f\x46ireXR.Protobufb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -56,8 +56,8 @@ _FACILITYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1823,
-  serialized_end=1926,
+  serialized_start=1996,
+  serialized_end=2099,
 )
 _sym_db.RegisterEnumDescriptor(_FACILITYTYPE)
 
@@ -88,8 +88,8 @@ _TRANSFORM_TRANSFORMTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=346,
-  serialized_end=386,
+  serialized_start=358,
+  serialized_end=398,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFORM_TRANSFORMTYPE)
 
@@ -113,8 +113,8 @@ _XREVENT_XREVENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1170,
-  serialized_end=1208,
+  serialized_start=1255,
+  serialized_end=1293,
 )
 _sym_db.RegisterEnumDescriptor(_XREVENT_XREVENTTYPE)
 
@@ -128,84 +128,91 @@ _TRANSFORM = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.Transform.Type', index=0,
+      name='ID', full_name='FireXR.Transform.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Type', full_name='FireXR.Transform.Type', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Name', full_name='FireXR.Transform.Name', index=1,
+      name='Name', full_name='FireXR.Transform.Name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='PositionX', full_name='FireXR.Transform.PositionX', index=2,
+      name='PositionX', full_name='FireXR.Transform.PositionX', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='PositionY', full_name='FireXR.Transform.PositionY', index=3,
+      name='PositionY', full_name='FireXR.Transform.PositionY', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='PositionZ', full_name='FireXR.Transform.PositionZ', index=4,
+      name='PositionZ', full_name='FireXR.Transform.PositionZ', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='RotationX', full_name='FireXR.Transform.RotationX', index=5,
+      name='RotationX', full_name='FireXR.Transform.RotationX', index=6,
       number=7, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='RotationY', full_name='FireXR.Transform.RotationY', index=6,
+      name='RotationY', full_name='FireXR.Transform.RotationY', index=7,
       number=8, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='RotationZ', full_name='FireXR.Transform.RotationZ', index=7,
+      name='RotationZ', full_name='FireXR.Transform.RotationZ', index=8,
       number=9, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ScaleX', full_name='FireXR.Transform.ScaleX', index=8,
+      name='ScaleX', full_name='FireXR.Transform.ScaleX', index=9,
       number=10, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ScaleY', full_name='FireXR.Transform.ScaleY', index=9,
+      name='ScaleY', full_name='FireXR.Transform.ScaleY', index=10,
       number=11, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ScaleZ', full_name='FireXR.Transform.ScaleZ', index=10,
+      name='ScaleZ', full_name='FireXR.Transform.ScaleZ', index=11,
       number=12, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.Transform.Desc', index=11,
+      name='Desc', full_name='FireXR.Transform.Desc', index=12,
       number=13, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -225,7 +232,7 @@ _TRANSFORM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=96,
-  serialized_end=386,
+  serialized_end=398,
 )
 
 
@@ -238,35 +245,42 @@ _INTERACTIONPOINT = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Facility', full_name='FireXR.InteractionPoint.Facility', index=0,
+      name='ID', full_name='FireXR.InteractionPoint.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Facility', full_name='FireXR.InteractionPoint.Facility', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.InteractionPoint.Type', index=1,
+      name='Type', full_name='FireXR.InteractionPoint.Type', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Transform', full_name='FireXR.InteractionPoint.Transform', index=2,
+      name='Transform', full_name='FireXR.InteractionPoint.Transform', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Contents', full_name='FireXR.InteractionPoint.Contents', index=3,
+      name='Contents', full_name='FireXR.InteractionPoint.Contents', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.InteractionPoint.Desc', index=4,
+      name='Desc', full_name='FireXR.InteractionPoint.Desc', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -284,8 +298,8 @@ _INTERACTIONPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=389,
-  serialized_end=531,
+  serialized_start=401,
+  serialized_end=555,
 )
 
 
@@ -298,21 +312,28 @@ _CUTSCENE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.CutScene.Type', index=0,
+      name='ID', full_name='FireXR.CutScene.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Type', full_name='FireXR.CutScene.Type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FileName', full_name='FireXR.CutScene.FileName', index=1,
+      name='FileName', full_name='FireXR.CutScene.FileName', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.CutScene.Desc', index=2,
+      name='Desc', full_name='FireXR.CutScene.Desc', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -330,8 +351,8 @@ _CUTSCENE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=533,
-  serialized_end=589,
+  serialized_start=557,
+  serialized_end=625,
 )
 
 
@@ -344,56 +365,63 @@ _OBJECTINFO = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Name', full_name='FireXR.ObjectInfo.Name', index=0,
+      name='ID', full_name='FireXR.ObjectInfo.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Name', full_name='FireXR.ObjectInfo.Name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Facility', full_name='FireXR.ObjectInfo.Facility', index=1,
+      name='Facility', full_name='FireXR.ObjectInfo.Facility', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.ObjectInfo.Type', index=2,
+      name='Type', full_name='FireXR.ObjectInfo.Type', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FileName', full_name='FireXR.ObjectInfo.FileName', index=3,
+      name='FileName', full_name='FireXR.ObjectInfo.FileName', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ActivatedEventDelay', full_name='FireXR.ObjectInfo.ActivatedEventDelay', index=4,
+      name='ActivatedEventDelay', full_name='FireXR.ObjectInfo.ActivatedEventDelay', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ActivateObjects', full_name='FireXR.ObjectInfo.ActivateObjects', index=5,
+      name='ActivateObjects', full_name='FireXR.ObjectInfo.ActivateObjects', index=6,
       number=7, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DeactivateObject', full_name='FireXR.ObjectInfo.DeactivateObject', index=6,
+      name='DeactivateObjects', full_name='FireXR.ObjectInfo.DeactivateObjects', index=7,
       number=8, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.ObjectInfo.Desc', index=7,
+      name='Desc', full_name='FireXR.ObjectInfo.Desc', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -411,8 +439,8 @@ _OBJECTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=592,
-  serialized_end=784,
+  serialized_start=628,
+  serialized_end=833,
 )
 
 
@@ -425,28 +453,35 @@ _SOUND = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.Sound.Type', index=0,
+      name='ID', full_name='FireXR.Sound.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Type', full_name='FireXR.Sound.Type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FileName', full_name='FireXR.Sound.FileName', index=1,
+      name='FileName', full_name='FireXR.Sound.FileName', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='LoopingUse', full_name='FireXR.Sound.LoopingUse', index=2,
+      name='LoopingUse', full_name='FireXR.Sound.LoopingUse', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.Sound.Desc', index=3,
+      name='Desc', full_name='FireXR.Sound.Desc', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -464,8 +499,8 @@ _SOUND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=786,
-  serialized_end=859,
+  serialized_start=835,
+  serialized_end=920,
 )
 
 
@@ -478,49 +513,56 @@ _FDSFILE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Version', full_name='FireXR.FDSFile.Version', index=0,
+      name='ID', full_name='FireXR.FDSFile.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Version', full_name='FireXR.FDSFile.Version', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DataType', full_name='FireXR.FDSFile.DataType', index=1,
+      name='DataType', full_name='FireXR.FDSFile.DataType', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DeviceType', full_name='FireXR.FDSFile.DeviceType', index=2,
+      name='DeviceType', full_name='FireXR.FDSFile.DeviceType', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='StartTime', full_name='FireXR.FDSFile.StartTime', index=3,
+      name='StartTime', full_name='FireXR.FDSFile.StartTime', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='EndTime', full_name='FireXR.FDSFile.EndTime', index=4,
+      name='EndTime', full_name='FireXR.FDSFile.EndTime', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FileName', full_name='FireXR.FDSFile.FileName', index=5,
+      name='FileName', full_name='FireXR.FDSFile.FileName', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.FDSFile.Desc', index=6,
+      name='Desc', full_name='FireXR.FDSFile.Desc', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -538,8 +580,8 @@ _FDSFILE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=862,
-  serialized_end=994,
+  serialized_start=923,
+  serialized_end=1067,
 )
 
 
@@ -552,56 +594,63 @@ _XREVENT = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Type', full_name='FireXR.XREvent.Type', index=0,
+      name='ID', full_name='FireXR.XREvent.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Type', full_name='FireXR.XREvent.Type', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Action', full_name='FireXR.XREvent.Action', index=1,
+      name='Action', full_name='FireXR.XREvent.Action', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Target', full_name='FireXR.XREvent.Target', index=2,
+      name='Target', full_name='FireXR.XREvent.Target', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Contents', full_name='FireXR.XREvent.Contents', index=3,
+      name='Contents', full_name='FireXR.XREvent.Contents', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='StartDelay', full_name='FireXR.XREvent.StartDelay', index=4,
+      name='StartDelay', full_name='FireXR.XREvent.StartDelay', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='NextDelay', full_name='FireXR.XREvent.NextDelay', index=5,
+      name='NextDelay', full_name='FireXR.XREvent.NextDelay', index=6,
       number=7, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='NextID', full_name='FireXR.XREvent.NextID', index=6,
+      name='NextID', full_name='FireXR.XREvent.NextID', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.XREvent.Desc', index=7,
+      name='Desc', full_name='FireXR.XREvent.Desc', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -620,8 +669,8 @@ _XREVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=997,
-  serialized_end=1208,
+  serialized_start=1070,
+  serialized_end=1293,
 )
 
 
@@ -634,21 +683,28 @@ _FDS = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Facility', full_name='FireXR.FDS.Facility', index=0,
+      name='ID', full_name='FireXR.FDS.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Facility', full_name='FireXR.FDS.Facility', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FDSFileID', full_name='FireXR.FDS.FDSFileID', index=1,
+      name='FDSFileID', full_name='FireXR.FDS.FDSFileID', index=2,
       number=3, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Desc', full_name='FireXR.FDS.Desc', index=2,
+      name='Desc', full_name='FireXR.FDS.Desc', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -666,8 +722,8 @@ _FDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1210,
-  serialized_end=1288,
+  serialized_start=1295,
+  serialized_end=1385,
 )
 
 
@@ -679,6 +735,20 @@ _EVALUATION = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='ID', full_name='FireXR.Evaluation.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Name', full_name='FireXR.Evaluation.Name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -691,8 +761,8 @@ _EVALUATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1290,
-  serialized_end=1302,
+  serialized_start=1387,
+  serialized_end=1425,
 )
 
 
@@ -704,6 +774,20 @@ _EVALUATIONACTION = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='ID', full_name='FireXR.EvaluationAction.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Name', full_name='FireXR.EvaluationAction.Name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -716,8 +800,8 @@ _EVALUATIONACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1304,
-  serialized_end=1322,
+  serialized_start=1427,
+  serialized_end=1471,
 )
 
 
@@ -730,91 +814,98 @@ _SEPARATEDSCENARIO = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Version', full_name='FireXR.SeparatedScenario.Version', index=0,
+      name='ID', full_name='FireXR.SeparatedScenario.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Version', full_name='FireXR.SeparatedScenario.Version', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Category', full_name='FireXR.SeparatedScenario.Category', index=1,
+      name='Category', full_name='FireXR.SeparatedScenario.Category', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Title', full_name='FireXR.SeparatedScenario.Title', index=2,
+      name='Title', full_name='FireXR.SeparatedScenario.Title', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Description', full_name='FireXR.SeparatedScenario.Description', index=3,
+      name='Description', full_name='FireXR.SeparatedScenario.Description', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TargetFacility', full_name='FireXR.SeparatedScenario.TargetFacility', index=4,
+      name='TargetFacility', full_name='FireXR.SeparatedScenario.TargetFacility', index=5,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UseParentFDS', full_name='FireXR.SeparatedScenario.UseParentFDS', index=5,
+      name='UseParentFDS', full_name='FireXR.SeparatedScenario.UseParentFDS', index=6,
       number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FDS', full_name='FireXR.SeparatedScenario.FDS', index=6,
+      name='FDS', full_name='FireXR.SeparatedScenario.FDS', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FDSStartDelay', full_name='FireXR.SeparatedScenario.FDSStartDelay', index=7,
+      name='FDSStartDelay', full_name='FireXR.SeparatedScenario.FDSStartDelay', index=8,
       number=9, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='UseParentDaylight', full_name='FireXR.SeparatedScenario.UseParentDaylight', index=8,
+      name='UseParentDaylight', full_name='FireXR.SeparatedScenario.UseParentDaylight', index=9,
       number=10, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DaylightTime', full_name='FireXR.SeparatedScenario.DaylightTime', index=9,
+      name='DaylightTime', full_name='FireXR.SeparatedScenario.DaylightTime', index=10,
       number=11, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Timeout', full_name='FireXR.SeparatedScenario.Timeout', index=10,
+      name='Timeout', full_name='FireXR.SeparatedScenario.Timeout', index=11,
       number=12, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Evaluations', full_name='FireXR.SeparatedScenario.Evaluations', index=11,
+      name='Evaluations', full_name='FireXR.SeparatedScenario.Evaluations', index=12,
       number=13, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='XREvents', full_name='FireXR.SeparatedScenario.XREvents', index=12,
+      name='XREvents', full_name='FireXR.SeparatedScenario.XREvents', index=13,
       number=14, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -832,8 +923,8 @@ _SEPARATEDSCENARIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1325,
-  serialized_end=1624,
+  serialized_start=1474,
+  serialized_end=1785,
 )
 
 
@@ -846,56 +937,63 @@ _COMBINEDSCENARIO = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Version', full_name='FireXR.CombinedScenario.Version', index=0,
+      name='ID', full_name='FireXR.CombinedScenario.ID', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Version', full_name='FireXR.CombinedScenario.Version', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Title', full_name='FireXR.CombinedScenario.Title', index=1,
+      name='Title', full_name='FireXR.CombinedScenario.Title', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Description', full_name='FireXR.CombinedScenario.Description', index=2,
+      name='Description', full_name='FireXR.CombinedScenario.Description', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TargetFacility', full_name='FireXR.CombinedScenario.TargetFacility', index=3,
+      name='TargetFacility', full_name='FireXR.CombinedScenario.TargetFacility', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FDS', full_name='FireXR.CombinedScenario.FDS', index=4,
+      name='FDS', full_name='FireXR.CombinedScenario.FDS', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='FDSStartDelay', full_name='FireXR.CombinedScenario.FDSStartDelay', index=5,
+      name='FDSStartDelay', full_name='FireXR.CombinedScenario.FDSStartDelay', index=6,
       number=7, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DaylightTime', full_name='FireXR.CombinedScenario.DaylightTime', index=6,
+      name='DaylightTime', full_name='FireXR.CombinedScenario.DaylightTime', index=7,
       number=8, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Scenarios', full_name='FireXR.CombinedScenario.Scenarios', index=7,
+      name='Scenarios', full_name='FireXR.CombinedScenario.Scenarios', index=8,
       number=9, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -913,8 +1011,8 @@ _COMBINEDSCENARIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1627,
-  serialized_end=1821,
+  serialized_start=1788,
+  serialized_end=1994,
 )
 
 _TRANSFORM.fields_by_name['Type'].enum_type = _TRANSFORM_TRANSFORMTYPE

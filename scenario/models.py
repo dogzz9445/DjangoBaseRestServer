@@ -1,56 +1,6 @@
 import uuid
 from django.db import models
 from colorfield.fields import ColorField
-import scenario.proto.firexr_scenario_pb2 as proto
-from pb_model.models import ProtoBufMixin
-
-class Transform(ProtoBufMixin, models.Model):
-    pb_model = proto.Transform
-    pb_2_dj_fields = '__all__'
-
-class InteractionPoint(ProtoBufMixin, models.Model):
-    pb_model = proto.InteractionPoint
-    pb_2_dj_fields = '__all__'
-
-class CutScene(ProtoBufMixin, models.Model):
-    pb_model = proto.CutScene
-    pb_2_dj_fields = '__all__'
-
-class ObjectInfo(ProtoBufMixin, models.Model):
-    pb_model = proto.ObjectInfo
-    pb_2_dj_fields = '__all__'
-
-class Sound(ProtoBufMixin, models.Model):
-    pb_model = proto.Sound
-    pb_2_dj_fields = '__all__'
-
-class FDSFile(ProtoBufMixin, models.Model):
-    pb_model = proto.FDSFile
-    pb_2_dj_fields = '__all__'
-
-class XREvent(ProtoBufMixin, models.Model):
-    pb_model = proto.XREvent
-    pb_2_dj_fields = '__all__'
-
-class FDS(ProtoBufMixin, models.Model):
-    pb_model = proto.FDS
-    pb_2_dj_fields = '__all__'
-
-class Evaluation(ProtoBufMixin, models.Model):
-    pb_model = proto.Evaluation
-    pb_2_dj_fields = '__all__'
-
-class EvaluationAction(ProtoBufMixin, models.Model):
-    pb_model = proto.EvaluationAction
-    pb_2_dj_fields = '__all__'
-
-class SeparatedScenario(ProtoBufMixin, models.Model):
-    pb_model = proto.SeparatedScenario
-    pb_2_dj_fields = '__all__'
-
-class CombinedScenario(ProtoBufMixin, models.Model):
-    pb_model = proto.CombinedScenario
-    pb_2_dj_fields = '__all__'
 
 MULTIUSE_FACILITY = 'MultiUseFacility'
 COMPLEX_FACILITY = 'ComplexFacility'

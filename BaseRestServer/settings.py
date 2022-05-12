@@ -52,8 +52,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'pb_model',
     
-    'api',
     'scenario',
+    'api',
+    'firexr',
 ]
 
 MIDDLEWARE = [
