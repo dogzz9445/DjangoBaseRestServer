@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/static/admin/css/vendor/select2/LICENSE-SELECT2.md

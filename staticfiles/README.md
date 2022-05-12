@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/venv/lib/site-packages/pb_model/static/README.md

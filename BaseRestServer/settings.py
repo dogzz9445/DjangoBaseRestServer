@@ -45,11 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'django_windows_tools',
+    # 'django_windows_tools',
     
     'colorfield',
     'corsheaders',
     'rest_framework',
+    'pb_model',
     
     'api',
     'scenario',

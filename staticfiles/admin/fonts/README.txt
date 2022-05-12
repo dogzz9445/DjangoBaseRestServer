@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/static/admin/fonts/README.txt
