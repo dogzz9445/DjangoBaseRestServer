@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/static/admin/js/popup_response.js

@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/static/rest_framework/js/prettify-min.js

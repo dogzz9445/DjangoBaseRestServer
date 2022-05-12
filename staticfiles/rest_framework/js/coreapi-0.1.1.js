@@ -1,0 +1,1 @@
+D:/Git/DjangoBaseRestServer/static/rest_framework/js/coreapi-0.1.1.js

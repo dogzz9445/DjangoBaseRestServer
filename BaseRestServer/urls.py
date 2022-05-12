@@ -72,7 +72,21 @@ router.register(r'media', UploadViewSet, basename='media')
 router.register(r'scenario', UploadViewSet, basename='scenario')
 router.register(r'interactionarea', UploadViewSet, basename='interactionarea')
 router.register(r'objectinfo', UploadViewSet, basename='objectinfo')
-router.register(r'scenario/interactionarea', InteractionAreaViewSet)
+router.register(r'interactionarea', InteractionAreaViewSet)
+router.register(r'unit/transform', TransformViewSet)
+router.register(r'unit/interactionpoint', InteractionPointViewSet)
+router.register(r'unit/cutscene', CutSceneViewSet)
+router.register(r'unit/objectinfo', ObjectInfoViewSet)
+router.register(r'unit/sound', SoundViewSet)
+router.register(r'unit/fdsfile', FDSFileViewSet)
+router.register(r'unit/fds', FDSViewSet)
+router.register(r'unit/xrevent', XREventViewSet)
+router.register(r'unit/evaluation', EvaluationViewSet)
+router.register(r'unit/evaluationaction', EvaluationActionViewSet)
+router.register(r'unit/separatedscenario', SeparatedScenarioViewSet)
+router.register(r'unit/combinedscenario', CombinedScenarioViewSet)
+
+router.register(r'scenario/combinedscenario', CombinedScenarioViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
