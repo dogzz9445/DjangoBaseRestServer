@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\252\002\017FireXR.Protobuf',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x15\x66irexr_scenario.proto\x12\x06\x46ireXR\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x02\n\tTransform\x12\n\n\x02ID\x18\x01 \x01(\r\x12-\n\x04Type\x18\x02 \x01(\x0e\x32\x1f.FireXR.Transform.TransformType\x12\x0c\n\x04Name\x18\x03 \x01(\t\x12\x11\n\tPositionX\x18\x04 \x01(\x02\x12\x11\n\tPositionY\x18\x05 \x01(\x02\x12\x11\n\tPositionZ\x18\x06 \x01(\x02\x12\x11\n\tRotationX\x18\x07 \x01(\x02\x12\x11\n\tRotationY\x18\x08 \x01(\x02\x12\x11\n\tRotationZ\x18\t \x01(\x02\x12\x0e\n\x06ScaleX\x18\n \x01(\x02\x12\x0e\n\x06ScaleY\x18\x0b \x01(\x02\x12\x0e\n\x06ScaleZ\x18\x0c \x01(\x02\x12\x0c\n\x04\x44\x65sc\x18\r \x01(\t\"(\n\rTransformType\x12\x0c\n\x08POSITION\x10\x00\x12\t\n\x05SCALA\x10\x01\"\x9a\x01\n\x10InteractionPoint\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x03 \x01(\t\x12$\n\tTransform\x18\x04 \x01(\x0b\x32\x11.FireXR.Transform\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x06 \x01(\t\"D\n\x08\x43utScene\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\xcd\x01\n\nObjectInfo\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x03 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x04 \x01(\t\x12\x10\n\x08\x46ileName\x18\x05 \x01(\t\x12\x1b\n\x13\x41\x63tivatedEventDelay\x18\x06 \x01(\x02\x12\x17\n\x0f\x41\x63tivateObjects\x18\x07 \x03(\r\x12\x19\n\x11\x44\x65\x61\x63tivateObjects\x18\x08 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"U\n\x05Sound\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x12\n\nLoopingUse\x18\x04 \x01(\x05\x12\x0c\n\x04\x44\x65sc\x18\x05 \x01(\t\"\x90\x01\n\x07\x46\x44SFile\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x12\n\nDeviceType\x18\x04 \x01(\t\x12\x11\n\tStartTime\x18\x05 \x01(\x02\x12\x0f\n\x07\x45ndTime\x18\x06 \x01(\x02\x12\x10\n\x08\x46ileName\x18\x07 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x08 \x01(\t\"\xdf\x01\n\x07XREvent\x12\n\n\x02ID\x18\x01 \x01(\r\x12)\n\x04Type\x18\x02 \x01(\x0e\x32\x1b.FireXR.XREvent.XREventType\x12\x0e\n\x06\x41\x63tion\x18\x03 \x01(\t\x12\x0e\n\x06Target\x18\x04 \x01(\t\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x12\n\nStartDelay\x18\x06 \x01(\x02\x12\x11\n\tNextDelay\x18\x07 \x01(\x02\x12\x0e\n\x06NextID\x18\x08 \x01(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"&\n\x0bXREventType\x12\t\n\x05\x45vent\x10\x00\x12\x0c\n\x08Listener\x10\x01\"Z\n\x03\x46\x44S\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x11\n\tFDSFileID\x18\x03 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"&\n\nEvaluation\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\",\n\x10\x45valuationAction\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\"\xb7\x02\n\x11SeparatedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x43\x61tegory\x18\x03 \x03(\t\x12\r\n\x05Title\x18\x04 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x05 \x01(\t\x12,\n\x0eTargetFacility\x18\x06 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x14\n\x0cUseParentFDS\x18\x07 \x01(\x05\x12\x0b\n\x03\x46\x44S\x18\x08 \x01(\r\x12\x15\n\rFDSStartDelay\x18\t \x01(\x02\x12\x19\n\x11UseParentDaylight\x18\n \x01(\x05\x12\x14\n\x0c\x44\x61ylightTime\x18\x0b \x01(\x02\x12\x0f\n\x07Timeout\x18\x0c \x01(\x02\x12\x13\n\x0b\x45valuations\x18\r \x03(\r\x12\x10\n\x08XREvents\x18\x0e \x03(\r\"\xce\x01\n\x10\x43ombinedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\r\n\x05Title\x18\x03 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x04 \x01(\t\x12,\n\x0eTargetFacility\x18\x05 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0b\n\x03\x46\x44S\x18\x06 \x01(\r\x12\x15\n\rFDSStartDelay\x18\x07 \x01(\x02\x12\x14\n\x0c\x44\x61ylightTime\x18\x08 \x01(\x02\x12\x11\n\tScenarios\x18\t \x03(\r*g\n\x0c\x46\x61\x63ilityType\x12\x14\n\x10MultiUseFacility\x10\x00\x12\x13\n\x0f\x43omplexFacility\x10\x01\x12\x13\n\x0f\x45lderlyFacility\x10\x02\x12\x17\n\x13UndergroundFacility\x10\x03\x42\x12\xaa\x02\x0f\x46ireXR.Protobufb\x06proto3'
+  serialized_pb=b'\n\x15\x66irexr_scenario.proto\x12\x06\x46ireXR\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfa\x01\n\tTransform\x12\n\n\x02ID\x18\x01 \x01(\r\x12#\n\x04Type\x18\x02 \x01(\x0e\x32\x15.FireXR.TransformType\x12\x0c\n\x04Name\x18\x03 \x01(\t\x12\x11\n\tPositionX\x18\x04 \x01(\x02\x12\x11\n\tPositionY\x18\x05 \x01(\x02\x12\x11\n\tPositionZ\x18\x06 \x01(\x02\x12\x11\n\tRotationX\x18\x07 \x01(\x02\x12\x11\n\tRotationY\x18\x08 \x01(\x02\x12\x11\n\tRotationZ\x18\t \x01(\x02\x12\x0e\n\x06ScaleX\x18\n \x01(\x02\x12\x0e\n\x06ScaleY\x18\x0b \x01(\x02\x12\x0e\n\x06ScaleZ\x18\x0c \x01(\x02\x12\x0c\n\x04\x44\x65sc\x18\r \x01(\t\"\x9a\x01\n\x10InteractionPoint\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x03 \x01(\t\x12$\n\tTransform\x18\x04 \x01(\x0b\x32\x11.FireXR.Transform\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x06 \x01(\t\"D\n\x08\x43utScene\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\xcd\x01\n\nObjectInfo\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Name\x18\x02 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x03 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0c\n\x04Type\x18\x04 \x01(\t\x12\x10\n\x08\x46ileName\x18\x05 \x01(\t\x12\x1b\n\x13\x41\x63tivatedEventDelay\x18\x06 \x01(\x02\x12\x17\n\x0f\x41\x63tivateObjects\x18\x07 \x03(\r\x12\x19\n\x11\x44\x65\x61\x63tivateObjects\x18\x08 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"U\n\x05Sound\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x12\n\nLoopingUse\x18\x04 \x01(\x05\x12\x0c\n\x04\x44\x65sc\x18\x05 \x01(\t\"\x90\x01\n\x07\x46\x44SFile\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x12\n\nDeviceType\x18\x04 \x01(\t\x12\x11\n\tStartTime\x18\x05 \x01(\x02\x12\x0f\n\x07\x45ndTime\x18\x06 \x01(\x02\x12\x10\n\x08\x46ileName\x18\x07 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x08 \x01(\t\"\xaf\x01\n\x07XREvent\x12\n\n\x02ID\x18\x01 \x01(\r\x12!\n\x04Type\x18\x02 \x01(\x0e\x32\x13.FireXR.XREventType\x12\x0e\n\x06\x41\x63tion\x18\x03 \x01(\t\x12\x0e\n\x06Target\x18\x04 \x01(\t\x12\x10\n\x08\x43ontents\x18\x05 \x01(\t\x12\x12\n\nStartDelay\x18\x06 \x01(\x02\x12\x11\n\tNextDelay\x18\x07 \x01(\x02\x12\x0e\n\x06NextID\x18\x08 \x01(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"Z\n\x03\x46\x44S\x12\n\n\x02ID\x18\x01 \x01(\r\x12&\n\x08\x46\x61\x63ility\x18\x02 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x11\n\tFDSFileID\x18\x03 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\x04 \x01(\t\"\xa2\x01\n\nEvaluation\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x10\n\x08\x43\x61tegory\x18\x02 \x01(\t\x12\x0e\n\x06\x41\x63tion\x18\x03 \x01(\t\x12\x0e\n\x06Weight\x18\x04 \x01(\x02\x12\r\n\x05Score\x18\x05 \x01(\x02\x12\x0c\n\x04Type\x18\x06 \x01(\t\x12\x10\n\x08\x43ontents\x18\x07 \x01(\t\x12\x19\n\x11\x45valuationActions\x18\x08 \x03(\r\x12\x0c\n\x04\x44\x65sc\x18\t \x01(\t\"<\n\x10\x45valuationAction\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0e\n\x06\x41\x63tion\x18\x02 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x03 \x01(\t\"\xb1\x02\n\x11SeparatedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\x10\n\x08\x43\x61tegory\x18\x03 \x03(\t\x12\r\n\x05Title\x18\x04 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x05 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x06 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x14\n\x0cUseParentFDS\x18\x07 \x01(\x05\x12\x0b\n\x03\x46\x44S\x18\x08 \x01(\r\x12\x15\n\rFDSStartDelay\x18\t \x01(\x02\x12\x19\n\x11UseParentDaylight\x18\n \x01(\x05\x12\x14\n\x0c\x44\x61ylightTime\x18\x0b \x01(\x02\x12\x0f\n\x07Timeout\x18\x0c \x01(\x02\x12\x13\n\x0b\x45valuations\x18\r \x03(\r\x12\x10\n\x08XREvents\x18\x0e \x03(\r\"\xc8\x01\n\x10\x43ombinedScenario\x12\n\n\x02ID\x18\x01 \x01(\r\x12\x0f\n\x07Version\x18\x02 \x01(\x05\x12\r\n\x05Title\x18\x03 \x01(\t\x12\x13\n\x0b\x44\x65scription\x18\x04 \x01(\t\x12&\n\x08\x46\x61\x63ility\x18\x05 \x01(\x0e\x32\x14.FireXR.FacilityType\x12\x0b\n\x03\x46\x44S\x18\x06 \x01(\r\x12\x15\n\rFDSStartDelay\x18\x07 \x01(\x02\x12\x14\n\x0c\x44\x61ylightTime\x18\x08 \x01(\x02\x12\x11\n\tScenarios\x18\t \x03(\r*s\n\x0c\x46\x61\x63ilityType\x12\n\n\x06Global\x10\x00\x12\x14\n\x10MultiUseFacility\x10\x01\x12\x13\n\x0f\x43omplexFacility\x10\x02\x12\x13\n\x0f\x45lderlyFacility\x10\x03\x12\x17\n\x13UndergroundFacility\x10\x04*(\n\rTransformType\x12\x0c\n\x08POSITION\x10\x00\x12\t\n\x05SCALA\x10\x01*&\n\x0bXREventType\x12\t\n\x05\x45vent\x10\x00\x12\x0c\n\x08Listener\x10\x01*\xb7\x01\n\x0c\x43\x61tegoryType\x12\x08\n\x04None\x10\x00\x12\x13\n\x0f\x45\x61rlyExtinction\x10\x01\x12\x13\n\x0f\x46ireRecognition\x10\x02\x12\x14\n\x10\x46ireNotification\x10\x03\x12\x16\n\x12\x45vacuationGuidance\x10\x04\x12\x10\n\x0c\x46ireFacility\x10\x05\x12\x11\n\rFireCoworking\x10\x06\x12\x0f\n\x0b\x46ireCalling\x10\x07\x12\x0f\n\x0bSuddenEvent\x10\x08\x42\x12\xaa\x02\x0f\x46ireXR.Protobufb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -34,43 +34,42 @@ _FACILITYTYPE = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='MultiUseFacility', index=0, number=0,
+      name='Global', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='ComplexFacility', index=1, number=1,
+      name='MultiUseFacility', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='ElderlyFacility', index=2, number=2,
+      name='ComplexFacility', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='UndergroundFacility', index=3, number=3,
+      name='ElderlyFacility', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UndergroundFacility', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1996,
-  serialized_end=2099,
+  serialized_start=2025,
+  serialized_end=2140,
 )
 _sym_db.RegisterEnumDescriptor(_FACILITYTYPE)
 
 FacilityType = enum_type_wrapper.EnumTypeWrapper(_FACILITYTYPE)
-MultiUseFacility = 0
-ComplexFacility = 1
-ElderlyFacility = 2
-UndergroundFacility = 3
-
-
-_TRANSFORM_TRANSFORMTYPE = _descriptor.EnumDescriptor(
+_TRANSFORMTYPE = _descriptor.EnumDescriptor(
   name='TransformType',
-  full_name='FireXR.Transform.TransformType',
+  full_name='FireXR.TransformType',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -88,14 +87,15 @@ _TRANSFORM_TRANSFORMTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=358,
-  serialized_end=398,
+  serialized_start=2142,
+  serialized_end=2182,
 )
-_sym_db.RegisterEnumDescriptor(_TRANSFORM_TRANSFORMTYPE)
+_sym_db.RegisterEnumDescriptor(_TRANSFORMTYPE)
 
-_XREVENT_XREVENTTYPE = _descriptor.EnumDescriptor(
+TransformType = enum_type_wrapper.EnumTypeWrapper(_TRANSFORMTYPE)
+_XREVENTTYPE = _descriptor.EnumDescriptor(
   name='XREventType',
-  full_name='FireXR.XREvent.XREventType',
+  full_name='FireXR.XREventType',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -113,10 +113,92 @@ _XREVENT_XREVENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1255,
-  serialized_end=1293,
+  serialized_start=2184,
+  serialized_end=2222,
 )
-_sym_db.RegisterEnumDescriptor(_XREVENT_XREVENTTYPE)
+_sym_db.RegisterEnumDescriptor(_XREVENTTYPE)
+
+XREventType = enum_type_wrapper.EnumTypeWrapper(_XREVENTTYPE)
+_CATEGORYTYPE = _descriptor.EnumDescriptor(
+  name='CategoryType',
+  full_name='FireXR.CategoryType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='None', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EarlyExtinction', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FireRecognition', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FireNotification', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EvacuationGuidance', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FireFacility', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FireCoworking', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FireCalling', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SuddenEvent', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2225,
+  serialized_end=2408,
+)
+_sym_db.RegisterEnumDescriptor(_CATEGORYTYPE)
+
+CategoryType = enum_type_wrapper.EnumTypeWrapper(_CATEGORYTYPE)
+Global = 0
+MultiUseFacility = 1
+ComplexFacility = 2
+ElderlyFacility = 3
+UndergroundFacility = 4
+POSITION = 0
+SCALA = 1
+Event = 0
+Listener = 1
+globals()['None'] = 0
+EarlyExtinction = 1
+FireRecognition = 2
+FireNotification = 3
+EvacuationGuidance = 4
+FireFacility = 5
+FireCoworking = 6
+FireCalling = 7
+SuddenEvent = 8
+
 
 
 _TRANSFORM = _descriptor.Descriptor(
@@ -223,7 +305,6 @@ _TRANSFORM = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _TRANSFORM_TRANSFORMTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -232,7 +313,7 @@ _TRANSFORM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=96,
-  serialized_end=398,
+  serialized_end=346,
 )
 
 
@@ -298,8 +379,8 @@ _INTERACTIONPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=401,
-  serialized_end=555,
+  serialized_start=349,
+  serialized_end=503,
 )
 
 
@@ -351,8 +432,8 @@ _CUTSCENE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=625,
+  serialized_start=505,
+  serialized_end=573,
 )
 
 
@@ -439,8 +520,8 @@ _OBJECTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=628,
-  serialized_end=833,
+  serialized_start=576,
+  serialized_end=781,
 )
 
 
@@ -499,8 +580,8 @@ _SOUND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=835,
-  serialized_end=920,
+  serialized_start=783,
+  serialized_end=868,
 )
 
 
@@ -580,8 +661,8 @@ _FDSFILE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=923,
-  serialized_end=1067,
+  serialized_start=871,
+  serialized_end=1015,
 )
 
 
@@ -661,7 +742,6 @@ _XREVENT = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _XREVENT_XREVENTTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -669,8 +749,8 @@ _XREVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1070,
-  serialized_end=1293,
+  serialized_start=1018,
+  serialized_end=1193,
 )
 
 
@@ -722,8 +802,8 @@ _FDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1295,
-  serialized_end=1385,
+  serialized_start=1195,
+  serialized_end=1285,
 )
 
 
@@ -743,8 +823,57 @@ _EVALUATION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Name', full_name='FireXR.Evaluation.Name', index=1,
+      name='Category', full_name='FireXR.Evaluation.Category', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Action', full_name='FireXR.Evaluation.Action', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Weight', full_name='FireXR.Evaluation.Weight', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Score', full_name='FireXR.Evaluation.Score', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Type', full_name='FireXR.Evaluation.Type', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Contents', full_name='FireXR.Evaluation.Contents', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='EvaluationActions', full_name='FireXR.Evaluation.EvaluationActions', index=7,
+      number=8, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Desc', full_name='FireXR.Evaluation.Desc', index=8,
+      number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -761,8 +890,8 @@ _EVALUATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1387,
-  serialized_end=1425,
+  serialized_start=1288,
+  serialized_end=1450,
 )
 
 
@@ -782,8 +911,15 @@ _EVALUATIONACTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Name', full_name='FireXR.EvaluationAction.Name', index=1,
+      name='Action', full_name='FireXR.EvaluationAction.Action', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Desc', full_name='FireXR.EvaluationAction.Desc', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -800,8 +936,8 @@ _EVALUATIONACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1427,
-  serialized_end=1471,
+  serialized_start=1452,
+  serialized_end=1512,
 )
 
 
@@ -849,7 +985,7 @@ _SEPARATEDSCENARIO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TargetFacility', full_name='FireXR.SeparatedScenario.TargetFacility', index=5,
+      name='Facility', full_name='FireXR.SeparatedScenario.Facility', index=5,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -923,8 +1059,8 @@ _SEPARATEDSCENARIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1474,
-  serialized_end=1785,
+  serialized_start=1515,
+  serialized_end=1820,
 )
 
 
@@ -965,7 +1101,7 @@ _COMBINEDSCENARIO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='TargetFacility', full_name='FireXR.CombinedScenario.TargetFacility', index=4,
+      name='Facility', full_name='FireXR.CombinedScenario.Facility', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1011,20 +1147,18 @@ _COMBINEDSCENARIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1788,
-  serialized_end=1994,
+  serialized_start=1823,
+  serialized_end=2023,
 )
 
-_TRANSFORM.fields_by_name['Type'].enum_type = _TRANSFORM_TRANSFORMTYPE
-_TRANSFORM_TRANSFORMTYPE.containing_type = _TRANSFORM
+_TRANSFORM.fields_by_name['Type'].enum_type = _TRANSFORMTYPE
 _INTERACTIONPOINT.fields_by_name['Facility'].enum_type = _FACILITYTYPE
 _INTERACTIONPOINT.fields_by_name['Transform'].message_type = _TRANSFORM
 _OBJECTINFO.fields_by_name['Facility'].enum_type = _FACILITYTYPE
-_XREVENT.fields_by_name['Type'].enum_type = _XREVENT_XREVENTTYPE
-_XREVENT_XREVENTTYPE.containing_type = _XREVENT
+_XREVENT.fields_by_name['Type'].enum_type = _XREVENTTYPE
 _FDS.fields_by_name['Facility'].enum_type = _FACILITYTYPE
-_SEPARATEDSCENARIO.fields_by_name['TargetFacility'].enum_type = _FACILITYTYPE
-_COMBINEDSCENARIO.fields_by_name['TargetFacility'].enum_type = _FACILITYTYPE
+_SEPARATEDSCENARIO.fields_by_name['Facility'].enum_type = _FACILITYTYPE
+_COMBINEDSCENARIO.fields_by_name['Facility'].enum_type = _FACILITYTYPE
 DESCRIPTOR.message_types_by_name['Transform'] = _TRANSFORM
 DESCRIPTOR.message_types_by_name['InteractionPoint'] = _INTERACTIONPOINT
 DESCRIPTOR.message_types_by_name['CutScene'] = _CUTSCENE
@@ -1038,6 +1172,9 @@ DESCRIPTOR.message_types_by_name['EvaluationAction'] = _EVALUATIONACTION
 DESCRIPTOR.message_types_by_name['SeparatedScenario'] = _SEPARATEDSCENARIO
 DESCRIPTOR.message_types_by_name['CombinedScenario'] = _COMBINEDSCENARIO
 DESCRIPTOR.enum_types_by_name['FacilityType'] = _FACILITYTYPE
+DESCRIPTOR.enum_types_by_name['TransformType'] = _TRANSFORMTYPE
+DESCRIPTOR.enum_types_by_name['XREventType'] = _XREVENTTYPE
+DESCRIPTOR.enum_types_by_name['CategoryType'] = _CATEGORYTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Transform = _reflection.GeneratedProtocolMessageType('Transform', (_message.Message,), {

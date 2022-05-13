@@ -13,8 +13,15 @@ class Transform(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = Transform.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return 'transform'
 
 
 class InteractionPoint(ProtoBufMixin, models.Model):
@@ -22,10 +29,15 @@ class InteractionPoint(ProtoBufMixin, models.Model):
     pb_2_dj_fields = '__all__'
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
+    Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = InteractionPoint.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class CutScene(ProtoBufMixin, models.Model):
@@ -36,7 +48,11 @@ class CutScene(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = CutScene.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class ObjectInfo(ProtoBufMixin, models.Model):
@@ -49,7 +65,11 @@ class ObjectInfo(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = ObjectInfo.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class Sound(ProtoBufMixin, models.Model):
@@ -59,7 +79,11 @@ class Sound(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = Sound.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class FDSFile(ProtoBufMixin, models.Model):
@@ -69,7 +93,11 @@ class FDSFile(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = FDSFile.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class XREvent(ProtoBufMixin, models.Model):
@@ -79,7 +107,11 @@ class XREvent(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = XREvent.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class FDS(ProtoBufMixin, models.Model):
@@ -91,17 +123,11 @@ class FDS(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
-        return super().save(*args, **kwargs)
-
-class Evaluation(ProtoBufMixin, models.Model):
-    pb_model = proto.Evaluation
-    pb_2_dj_fields = '__all__'
-    ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
-
-    def save(self, *args, **kwargs):
-        if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = FDS.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class EvaluationAction(ProtoBufMixin, models.Model):
@@ -111,7 +137,26 @@ class EvaluationAction(ProtoBufMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = EvaluationAction.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
+        return super().save(*args, **kwargs)
+
+class Evaluation(ProtoBufMixin, models.Model):
+    pb_model = proto.Evaluation
+    pb_2_dj_fields = '__all__'
+    ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
+    EvaluationActions = models.ManyToManyField(EvaluationAction, symmetrical=False, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pk: # new instance
+            last = Evaluation.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class SeparatedScenario(ProtoBufMixin, models.Model):
@@ -120,12 +165,17 @@ class SeparatedScenario(ProtoBufMixin, models.Model):
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
     Category = models.CharField(max_length=256, default='')
+    Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
     Evaluations = models.ManyToManyField(Evaluation, symmetrical=False, blank=True)
     XREvents = models.ManyToManyField(XREvent, symmetrical=False, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = SeparatedScenario.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
 class CombinedScenario(ProtoBufMixin, models.Model):
@@ -133,9 +183,14 @@ class CombinedScenario(ProtoBufMixin, models.Model):
     pb_2_dj_fields = '__all__'
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
+    Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
     Scenarios = models.ManyToManyField(SeparatedScenario, symmetrical=False, blank=True, related_name='combined_scenario')
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
-            self.ID = CombinedScenario.objects.last().ID + 1
+            last = CombinedScenario.objects.last()
+            if last is None:
+                self.ID = 1
+            else:
+                self.ID = last.ID + 1
         return super().save(*args, **kwargs)
