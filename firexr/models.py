@@ -147,6 +147,7 @@ class EvaluationAction(ProtoBufMixin, models.Model):
 class Evaluation(ProtoBufMixin, models.Model):
     pb_model = proto.Evaluation
     pb_2_dj_fields = '__all__'
+    
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
     EvaluationActions = models.ManyToManyField(EvaluationAction, symmetrical=False, blank=True)
 
@@ -164,7 +165,7 @@ class SeparatedScenario(ProtoBufMixin, models.Model):
     pb_2_dj_fields = '__all__'
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
-    Category = models.CharField(max_length=256, default='')
+    Category = models.JSONField()
     Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
     Evaluations = models.ManyToManyField(Evaluation, symmetrical=False, blank=True)
     XREvents = models.ManyToManyField(XREvent, symmetrical=False, blank=True)
