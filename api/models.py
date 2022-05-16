@@ -1,6 +1,5 @@
 from django.db import models
 from colorfield.fields import ColorField
-
 # Create your models here.
 class Schedule(models.Model):
     title = models.CharField(max_length=30)

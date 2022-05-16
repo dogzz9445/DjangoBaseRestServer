@@ -24,6 +24,7 @@ from rest_framework import routers, serializers, viewsets, response, permissions
 from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.parsers import FileUploadParser
+from rest_framework.authtoken import views as auth_views
 import os
 
 from api.views import *
@@ -74,6 +75,7 @@ router.register(r'scenario', UploadViewSet, basename='scenario')
 router.register(r'interactionarea', UploadViewSet, basename='interactionarea')
 router.register(r'objectinfo', UploadViewSet, basename='objectinfo')
 router.register(r'interactionarea', InteractionAreaViewSet)
+
 router.register(r'unit/transform', TransformViewSet, basename='unit/transform')
 router.register(r'unit/interactionpoint', InteractionPointViewSet, basename='unit/interactionpoint')
 router.register(r'unit/cutscene', CutSceneViewSet, basename='unit/cutscene')
@@ -100,7 +102,7 @@ router.register(r'integrated/evaluationaction', IntegratedEvaluationActionViewSe
 router.register(r'integrated/separatedscenario', IntegratedSeparatedScenarioViewSet, basename='integrated/separatedscenario')
 router.register(r'integrated/combinedscenario', IntegratedCombinedScenarioViewSet, basename='integrated/combinedscenario')
 
-router.register(r'api/transform', APITransformList.as_view(), basename='api/transform')
+# router.register(r'api/transform', APITransformList.as_view(), basename='api/transform')
 # router.register(r'api/transform/<int:pk>/', APITransformDetail.as_view(), basename='api/transform')
 # router.register(r'api/interactionpoint', APIInteractionPointList.as_view(), basename='api/interactionpoint')
 # router.register(r'api/cutscene', APICutSceneList.as_view(), basename='api/cutscene')
@@ -118,5 +120,6 @@ router.register(r'combinedscenario', CombinedScenarioViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-token-auth/', auth_views.obtain_auth_token),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,52 +5,85 @@ from django.conf import settings
 from rest_framework.views import APIView
 from firexr.models import *
 from firexr.serializers import *
-
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
+
+
 class TransformViewSet(viewsets.ModelViewSet):
     queryset = Transform.objects.all()
     serializer_class = TransformSerializer
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
+@method_decorator(csrf_exempt, name='dispatch')
 class InteractionPointViewSet(viewsets.ModelViewSet):
     queryset = InteractionPoint.objects.all()
     serializer_class = InteractionPointSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CutSceneViewSet(viewsets.ModelViewSet):
     queryset = CutScene.objects.all()
     serializer_class = CutSceneSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ObjectInfoViewSet(viewsets.ModelViewSet):
     queryset = ObjectInfo.objects.all()
     serializer_class = ObjectInfoSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(ObjectInfoViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
+@method_decorator(csrf_exempt, name='dispatch')
 class SoundViewSet(viewsets.ModelViewSet):
     queryset = Sound.objects.all()
     serializer_class = SoundSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class FDSFileViewSet(viewsets.ModelViewSet):
     queryset = FDSFile.objects.all()
     serializer_class = FDSFileSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class FDSViewSet(viewsets.ModelViewSet):
     queryset = FDS.objects.all()
     serializer_class = FDSSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class XREventViewSet(viewsets.ModelViewSet):
     queryset = XREvent.objects.all()
     serializer_class = XREventSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class EvaluationViewSet(viewsets.ModelViewSet):
     queryset = Evaluation.objects.all()
     serializer_class = EvaluationSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class EvaluationActionViewSet(viewsets.ModelViewSet):
     queryset = EvaluationAction.objects.all()
     serializer_class = EvaluationActionSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class SeparatedScenarioViewSet(viewsets.ModelViewSet):
     queryset = SeparatedScenario.objects.all()
     serializer_class = SeparatedScenarioSerializer
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CombinedScenarioViewSet(viewsets.ModelViewSet):
     queryset = CombinedScenario.objects.all()
     serializer_class = CombinedScenarioSerializer

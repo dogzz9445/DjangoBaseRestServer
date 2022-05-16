@@ -20,9 +20,16 @@ class Transform(ProtoBufMixin, models.Model):
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
-    def __str__(self):
-        return 'transform'
-
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
 
 class InteractionPoint(ProtoBufMixin, models.Model):
     pb_model = proto.InteractionPoint
@@ -30,6 +37,7 @@ class InteractionPoint(ProtoBufMixin, models.Model):
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
     Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
+    LocalTransform = models.OneToOneField(Transform, related_name='transformposes', on_delete=models.CASCADE, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
@@ -39,6 +47,18 @@ class InteractionPoint(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class CutScene(ProtoBufMixin, models.Model):
     pb_model = proto.CutScene
@@ -54,6 +74,18 @@ class CutScene(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class ObjectInfo(ProtoBufMixin, models.Model):
     pb_model = proto.ObjectInfo
@@ -72,6 +104,18 @@ class ObjectInfo(ProtoBufMixin, models.Model):
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
+
 class Sound(ProtoBufMixin, models.Model):
     pb_model = proto.Sound
     pb_2_dj_fields = '__all__'
@@ -85,6 +129,18 @@ class Sound(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class FDSFile(ProtoBufMixin, models.Model):
     pb_model = proto.FDSFile
@@ -100,6 +156,18 @@ class FDSFile(ProtoBufMixin, models.Model):
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
+
 class XREvent(ProtoBufMixin, models.Model):
     pb_model = proto.XREvent
     pb_2_dj_fields = '__all__'
@@ -114,12 +182,24 @@ class XREvent(ProtoBufMixin, models.Model):
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
+
 class FDS(ProtoBufMixin, models.Model):
     pb_model = proto.FDS
     pb_2_dj_fields = '__all__'
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
-    FDSFileID = models.ManyToManyField(FDSFile, symmetrical=False, blank=True)
+    FDSFiles = models.ManyToManyField(FDSFile, symmetrical=False, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
@@ -129,6 +209,18 @@ class FDS(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class EvaluationAction(ProtoBufMixin, models.Model):
     pb_model = proto.EvaluationAction
@@ -143,6 +235,18 @@ class EvaluationAction(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class Evaluation(ProtoBufMixin, models.Model):
     pb_model = proto.Evaluation
@@ -159,6 +263,18 @@ class Evaluation(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
 
 class SeparatedScenario(ProtoBufMixin, models.Model):
     pb_model = proto.SeparatedScenario
@@ -179,6 +295,18 @@ class SeparatedScenario(ProtoBufMixin, models.Model):
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
+
 class CombinedScenario(ProtoBufMixin, models.Model):
     pb_model = proto.CombinedScenario
     pb_2_dj_fields = '__all__'
@@ -195,3 +323,15 @@ class CombinedScenario(ProtoBufMixin, models.Model):
             else:
                 self.ID = last.ID + 1
         return super().save(*args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        model = None
+        id = request.data.get('ID')
+        if id:
+            model = self.get_object(ID=id)
+        
+        if model:
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
+
