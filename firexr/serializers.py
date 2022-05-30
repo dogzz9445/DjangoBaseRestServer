@@ -43,13 +43,20 @@ class CreatableSlugRelatedField(serializers.SlugRelatedField):
 
 class TransformSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Name = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
 
     class Meta: 
         model = Transform
         fields = '__all__'
 
     def create(self, validated_data):
-        return Transform.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = Transform.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -59,6 +66,9 @@ class TransformSerializer(serializers.ModelSerializer):
         
 class InteractionPointSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Type = serializers.CharField(allow_blank=True)
+    Contents = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
     LocalTransform = CreatableSlugRelatedField(many=False, slug_field='ID', queryset=Transform.objects.all())
     
@@ -67,10 +77,14 @@ class InteractionPointSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        transformid = validated_data.pop("LocalTransform")
-        instance = InteractionPoint.objects.create(**validated_data)
+        transform_id = validated_data.pop("LocalTransform")
+        content_id = validated_data.pop('ID')
+        instance, created = InteractionPoint.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+        instance.LocalTransform = transform_id
         instance.save()
-        instance.LocalTransform = transformid
         return instance
 
     def update(self, instance, validated_data):
@@ -83,13 +97,22 @@ class InteractionPointSerializer(serializers.ModelSerializer):
         
 class CutSceneSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Type = serializers.CharField(allow_blank=True)
+    FileName = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     class Meta: 
         model = CutScene
         fields = '__all__'
 
     def create(self, validated_data):
-        return CutScene.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = CutScene.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+            instance.save()
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -99,6 +122,10 @@ class CutSceneSerializer(serializers.ModelSerializer):
         
 class ObjectInfoSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Name = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
+    Type = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
+    FileName = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
+    Desc = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
 
     ActivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
     DeactivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
@@ -118,10 +145,14 @@ class ObjectInfoSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         activate_objects = validated_data.pop("ActivateObjects")
         deactivate_objects = validated_data.pop("DeactivateObjects")
-        instance = ObjectInfo.objects.create(**validated_data)
-        instance.save()
+        content_id = validated_data.pop('ID')
+        instance, created = ObjectInfo.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
         instance.ActivateObjects.set(self.get_or_create_objinfo(activate_objects))
         instance.DeactivateObjects.set(self.get_or_create_objinfo(deactivate_objects))
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -136,13 +167,22 @@ class ObjectInfoSerializer(serializers.ModelSerializer):
         
 class SoundSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Type = serializers.CharField(allow_blank=True)
+    FileName = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     class Meta: 
         model = Sound
         fields = '__all__'
 
     def create(self, validated_data):
-        return Sound.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = Sound.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+            instance.save()
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -152,13 +192,23 @@ class SoundSerializer(serializers.ModelSerializer):
         
 class FDSFileSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    DataType = serializers.CharField(allow_blank=True)
+    DeviceType = serializers.CharField(allow_blank=True)
+    FileName = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     class Meta: 
         model = FDSFile
         fields = '__all__'
 
     def create(self, validated_data):
-        return FDSFile.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = FDSFile.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+            instance.save()
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -168,6 +218,7 @@ class FDSFileSerializer(serializers.ModelSerializer):
         
 class FDSSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     FDSFiles = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=FDSFile.objects.all())
     
@@ -184,9 +235,13 @@ class FDSSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         fdsfiles = validated_data.pop("FDSFiles")
-        instance = FDS.objects.create(**validated_data)
-        instance.save()
+        content_id = validated_data.pop('ID')
+        instance, created = FDS.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
         instance.FDSFiles.set(self.get_or_create_fdsfiles(fdsfiles))
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -199,13 +254,23 @@ class FDSSerializer(serializers.ModelSerializer):
         
 class XREventSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Action = serializers.CharField(allow_blank=True)
+    Target = serializers.CharField(allow_blank=True)
+    Contents = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     class Meta: 
         model = XREvent
         fields = '__all__'
 
     def create(self, validated_data):
-        return XREvent.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = XREvent.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+            instance.save()
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -215,13 +280,21 @@ class XREventSerializer(serializers.ModelSerializer):
         
 class EvaluationActionSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Action = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     
     class Meta: 
         model = EvaluationAction
         fields = '__all__'
 
     def create(self, validated_data):
-        return EvaluationAction.objects.create(**validated_data)
+        content_id = validated_data.pop('ID')
+        instance, created = EvaluationAction.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
+            instance.save()
+        return instance
 
     def update(self, instance, validated_data):
         for field, value in validated_data.items():
@@ -231,6 +304,11 @@ class EvaluationActionSerializer(serializers.ModelSerializer):
         
 class EvaluationSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Category = serializers.CharField(allow_blank=True)
+    Action = serializers.CharField(allow_blank=True)
+    Type = serializers.CharField(allow_blank=True)
+    Contents = serializers.CharField(allow_blank=True)
+    Desc = serializers.CharField(allow_blank=True)
     EvaluationActions = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=EvaluationAction.objects.all())
     
     def get_or_create_evaluation_actions(self, evaluation_actions):
@@ -253,9 +331,13 @@ class EvaluationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         evaluation_actions = validated_data.pop("EvaluationActions")
-        instance = Evaluation.objects.create(**validated_data)
-        instance.save()
+        content_id = validated_data.pop('ID')
+        instance, created = EvaluationAction.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
         instance.EvaluationActions.set(self.get_or_create_evaluation_actions(evaluation_actions))
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -271,6 +353,8 @@ class SeparatedScenarioSerializer(serializers.ModelSerializer):
     ID = serializers.IntegerField(allow_null=True)
     Version = serializers.IntegerField(default=1)
     Category = TextInputListField()
+    Title = serializers.CharField(allow_blank=True)
+    Description = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
     Evaluations = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=Evaluation.objects.all())
     XREvents = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=XREvent.objects.all())
@@ -296,10 +380,14 @@ class SeparatedScenarioSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         evaluations = validated_data.pop("Evaluations")
         xrevents = validated_data.pop("XREvents")
-        instance = SeparatedScenario.objects.create(**validated_data)
-        instance.save()
+        content_id = validated_data.pop('ID')
+        instance, created = EvaluationAction.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
         instance.Evaluations.set(self.get_or_create_evaluations(evaluations))
         instance.XREvents.set(self.get_or_create_xrevents(xrevents))
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -316,6 +404,8 @@ class SeparatedScenarioSerializer(serializers.ModelSerializer):
 
 class CombinedScenarioSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
+    Title = serializers.CharField(allow_blank=True)
+    Description = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
     Scenarios = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=SeparatedScenario.objects.all())
     
@@ -332,9 +422,13 @@ class CombinedScenarioSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         separated_scenarios = validated_data.pop("Scenarios")
-        instance = CombinedScenario.objects.create(**validated_data)
-        instance.save()
+        content_id = validated_data.pop('ID')
+        instance, created = EvaluationAction.objects.get_or_create(ID=content_id, defaults=validated_data)
+        if not created:
+            for field, value in validated_data.items():
+                setattr(instance, field, value)
         instance.Scenarios.set(self.get_or_create_separated_scenarios(separated_scenarios))
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
