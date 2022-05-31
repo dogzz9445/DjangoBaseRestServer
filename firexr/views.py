@@ -18,15 +18,60 @@ class TransformViewSet(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(TransformViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class InteractionPointViewSet(viewsets.ModelViewSet):
     queryset = InteractionPoint.objects.all()
     serializer_class = InteractionPointSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(InteractionPointViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CutSceneViewSet(viewsets.ModelViewSet):
     queryset = CutScene.objects.all()
     serializer_class = CutSceneSerializer
+
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(CutSceneViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ObjectInfoViewSet(viewsets.ModelViewSet):
@@ -53,40 +98,160 @@ class SoundViewSet(viewsets.ModelViewSet):
     queryset = Sound.objects.all()
     serializer_class = SoundSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(SoundViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class FDSFileViewSet(viewsets.ModelViewSet):
     queryset = FDSFile.objects.all()
     serializer_class = FDSFileSerializer
+
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(FDSFileViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
 
 @method_decorator(csrf_exempt, name='dispatch')
 class FDSViewSet(viewsets.ModelViewSet):
     queryset = FDS.objects.all()
     serializer_class = FDSSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(FDSViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class XREventViewSet(viewsets.ModelViewSet):
     queryset = XREvent.objects.all()
     serializer_class = XREventSerializer
+
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(XREventViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
 
 @method_decorator(csrf_exempt, name='dispatch')
 class EvaluationViewSet(viewsets.ModelViewSet):
     queryset = Evaluation.objects.all()
     serializer_class = EvaluationSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(EvaluationViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class EvaluationActionViewSet(viewsets.ModelViewSet):
     queryset = EvaluationAction.objects.all()
     serializer_class = EvaluationActionSerializer
+
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(EvaluationActionViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SeparatedScenarioViewSet(viewsets.ModelViewSet):
     queryset = SeparatedScenario.objects.all()
     serializer_class = SeparatedScenarioSerializer
 
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(SeparatedScenarioViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class CombinedScenarioViewSet(viewsets.ModelViewSet):
     queryset = CombinedScenario.objects.all()
     serializer_class = CombinedScenarioSerializer
+
+    def create(self, request, *args, **kwargs):
+        """
+        #checks if post request data is an array initializes serializer with many=True
+        else executes default CreateModelMixin.create function 
+        """
+        is_many = isinstance(request.data, list)
+        if not is_many:
+            return super(CombinedScenarioViewSet, self).create(request, *args, **kwargs)
+        else:
+            serializer = self.get_serializer(data=request.data, many=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return response.Response(serializer.data, status=201, headers=headers)
 
 
 ###

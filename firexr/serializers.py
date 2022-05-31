@@ -1,3 +1,4 @@
+from email.policy import default
 from pkg_resources import require
 from rest_framework import serializers 
 from django.core.exceptions import ObjectDoesNotExist
@@ -31,7 +32,32 @@ class CreatableSlugRelatedField(serializers.SlugRelatedField):
     
     def to_internal_value(self, data):
         try:
-            return self.get_queryset().get_or_create(**{self.slug_field: data})[0]
+            instance, created = self.get_queryset().get_or_create(**{self.slug_field: data})
+            return instance
+        except ObjectDoesNotExist:
+            self.fail('does_not_exist', slug_name=self.slug_field, value=data)
+        except (TypeError, ValueError):
+            self.fail('invalid')
+
+class NullableSlugRelatedField(serializers.SlugRelatedField):
+    def to_internal_value(self, data):
+        try:
+            if data == None:
+                return None
+            instance, created = self.get_queryset().get_or_create(**{self.slug_field: data})
+            return instance
+        except ObjectDoesNotExist:
+            self.fail('does_not_exist', slug_name=self.slug_field, value=data)
+        except (TypeError, ValueError):
+            self.fail('invalid')
+
+class BlankableSlugRelatedField(serializers.SlugRelatedField):
+    def to_internal_value(self, data):
+        try:
+            if data == 0 or str(data) == '':
+                return None
+            instance, created = self.get_queryset().get_or_create(**{self.slug_field: data})
+            return instance
         except ObjectDoesNotExist:
             self.fail('does_not_exist', slug_name=self.slug_field, value=data)
         except (TypeError, ValueError):
@@ -56,6 +82,7 @@ class TransformSerializer(serializers.ModelSerializer):
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -70,28 +97,35 @@ class InteractionPointSerializer(serializers.ModelSerializer):
     Contents = serializers.CharField(allow_blank=True)
     Desc = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
-    LocalTransform = CreatableSlugRelatedField(many=False, slug_field='ID', queryset=Transform.objects.all())
+    LocalTransform = BlankableSlugRelatedField(many=False, slug_field='ID', queryset=Transform.objects.all())
     
     class Meta: 
         model = InteractionPoint
         fields = '__all__'
 
+    def get_or_create_transform(self, transform_id):
+        if transform_id.ID == 0:
+            return None
+        transform_instance, created = Transform.objects.get_or_create(ID=transform_id.ID)
+        transform_instance.save()
+        return transform_instance
+
     def create(self, validated_data):
-        transform_id = validated_data.pop("LocalTransform")
+        transform = validated_data.pop("LocalTransform")
         content_id = validated_data.pop('ID')
         instance, created = InteractionPoint.objects.get_or_create(ID=content_id, defaults=validated_data)
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
-        instance.LocalTransform = transform_id
+        instance.LocalTransform = transform
         instance.save()
         return instance
 
     def update(self, instance, validated_data):
-        transformid = validated_data.pop("LocalTransform")
+        transform_id = validated_data.pop("LocalTransform")
         for field, value in validated_data.items():
             setattr(instance, field, value)
-        instance.LocalTransform = transformid
+        instance.LocalTransform = self.get_or_create_transform(transform_id=transform_id)
         instance.save()
         return instance
         
@@ -127,13 +161,17 @@ class ObjectInfoSerializer(serializers.ModelSerializer):
     FileName = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
     Desc = serializers.CharField(allow_null=True, allow_blank=True, default=None, required=False)
 
-    ActivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
-    DeactivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
+    ActivateObjects = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
+    DeactivateObjects = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
 
-    def get_or_create_objinfo(self, objinfos):
+    def get_or_create_objinfo(self, objinfos, parent_id):
         objinfo_ids = []
         for objinfo in objinfos:
-            objinfo_instance, created = ObjectInfo.objects.get_or_create(ID=objinfo.ID, defaults=objinfo)
+            if objinfo is None:
+                continue
+            if objinfo.ID == parent_id:
+                continue
+            objinfo_instance, created = ObjectInfo.objects.get_or_create(ID=objinfo.ID)
             objinfo_ids.append(objinfo_instance.pk)
         return objinfo_ids
 
@@ -150,8 +188,8 @@ class ObjectInfoSerializer(serializers.ModelSerializer):
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
-        instance.ActivateObjects.set(self.get_or_create_objinfo(activate_objects))
-        instance.DeactivateObjects.set(self.get_or_create_objinfo(deactivate_objects))
+        instance.ActivateObjects.set(self.get_or_create_objinfo(activate_objects, parent_id=content_id))
+        instance.DeactivateObjects.set(self.get_or_create_objinfo(deactivate_objects, parent_id=content_id))
         instance.save()
         return instance
 
@@ -160,8 +198,8 @@ class ObjectInfoSerializer(serializers.ModelSerializer):
         deactivate_objects = validated_data.pop("DeactivateObjects")
         for field, value in validated_data.items():
             setattr(instance, field, value)
-        instance.ActivateObjects.set(self.get_or_create_objinfo(activate_objects))
-        instance.DeactivateObjects.set(self.get_or_create_objinfo(deactivate_objects))
+        instance.ActivateObjects.set(self.get_or_create_objinfo(activate_objects, parent_id=instance.ID))
+        instance.DeactivateObjects.set(self.get_or_create_objinfo(deactivate_objects, parent_id=instance.ID))
         instance.save()
         return instance
         
@@ -181,7 +219,7 @@ class SoundSerializer(serializers.ModelSerializer):
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
-            instance.save()
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -207,7 +245,7 @@ class FDSFileSerializer(serializers.ModelSerializer):
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
-            instance.save()
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -220,11 +258,13 @@ class FDSSerializer(serializers.ModelSerializer):
     ID = serializers.IntegerField(allow_null=True)
     Desc = serializers.CharField(allow_blank=True)
     
-    FDSFiles = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=FDSFile.objects.all())
+    FDSFiles = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=FDSFile.objects.all())
     
     def get_or_create_fdsfiles(self, fdsfiles):
         fdsfile_ids = []
         for fdsfile in fdsfiles:
+            if fdsfile is None:
+                continue
             fdsfile_instance, created = FDSFile.objects.get_or_create(pk=fdsfile.ID, defaults=fdsfile)
             fdsfile_ids.append(fdsfile_instance.pk)
         return fdsfile_ids
@@ -269,7 +309,7 @@ class XREventSerializer(serializers.ModelSerializer):
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
-            instance.save()
+        instance.save()
         return instance
 
     def update(self, instance, validated_data):
@@ -309,11 +349,13 @@ class EvaluationSerializer(serializers.ModelSerializer):
     Type = serializers.CharField(allow_blank=True)
     Contents = serializers.CharField(allow_blank=True)
     Desc = serializers.CharField(allow_blank=True)
-    EvaluationActions = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=EvaluationAction.objects.all())
+    EvaluationActions = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=EvaluationAction.objects.all())
     
     def get_or_create_evaluation_actions(self, evaluation_actions):
         evaluation_action_ids = []
         for evaluation_action in evaluation_actions:
+            if evaluation_action is None:
+                continue
             evaluation_action_instance, created = EvaluationAction.objects.get_or_create(pk=evaluation_action.ID, defaults=evaluation_action)
             evaluation_action_ids.append(evaluation_action_instance.pk)
         return evaluation_action_ids
@@ -332,7 +374,7 @@ class EvaluationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         evaluation_actions = validated_data.pop("EvaluationActions")
         content_id = validated_data.pop('ID')
-        instance, created = EvaluationAction.objects.get_or_create(ID=content_id, defaults=validated_data)
+        instance, created = Evaluation.objects.get_or_create(ID=content_id, defaults=validated_data)
         if not created:
             for field, value in validated_data.items():
                 setattr(instance, field, value)
@@ -356,12 +398,14 @@ class SeparatedScenarioSerializer(serializers.ModelSerializer):
     Title = serializers.CharField(allow_blank=True)
     Description = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
-    Evaluations = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=Evaluation.objects.all())
-    XREvents = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=XREvent.objects.all())
+    Evaluations = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=Evaluation.objects.all())
+    XREvents = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=XREvent.objects.all())
     
     def get_or_create_evaluations(self, evaluations):
         evaluation_ids = []
         for evaluation in evaluations:
+            if evaluation is None:
+                continue
             evaluation_instance, created = Evaluation.objects.get_or_create(pk=evaluation.ID, defaults=evaluation)
             evaluation_ids.append(evaluation_instance.pk)
         return evaluation_ids
@@ -369,6 +413,8 @@ class SeparatedScenarioSerializer(serializers.ModelSerializer):
     def get_or_create_xrevents(self, xrevents):
         xrevent_ids = []
         for xrevent in xrevents:
+            if xrevent is None:
+                continue
             xrevent_instance, created = XREvent.objects.get_or_create(pk=xrevent.ID, defaults=xrevent)
             xrevent_ids.append(xrevent_instance.pk)
         return xrevent_ids
@@ -407,7 +453,7 @@ class CombinedScenarioSerializer(serializers.ModelSerializer):
     Title = serializers.CharField(allow_blank=True)
     Description = serializers.CharField(allow_blank=True)
     Facility = serializers.ChoiceField(choices=[(value, key) for key, value in proto.FacilityType.items()], default=0)
-    Scenarios = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=SeparatedScenario.objects.all())
+    Scenarios = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=SeparatedScenario.objects.all())
     
     class Meta: 
         model = CombinedScenario
@@ -416,6 +462,8 @@ class CombinedScenarioSerializer(serializers.ModelSerializer):
     def get_or_create_separated_scenarios(self, scenarios):
         scenario_ids = []
         for scenario in scenarios:
+            if scenario is None:
+                continue
             scenario_instance, created = SeparatedScenario.objects.get_or_create(pk=scenario.ID, defaults=scenario)
             scenario_ids.append(scenario_instance.pk)
         return scenario_ids
@@ -490,8 +538,8 @@ class IntegratedCutSceneSerializer(serializers.ModelSerializer):
 class IntegratedObjectInfoSerializer(serializers.ModelSerializer): 
     ID = serializers.IntegerField(allow_null=True)
 
-    ActivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
-    DeactivateObjects = CreatableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
+    ActivateObjects = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
+    DeactivateObjects = BlankableSlugRelatedField(many=True, slug_field='ID', queryset=ObjectInfo.objects.all())
 
     class Meta: 
         model = ObjectInfo

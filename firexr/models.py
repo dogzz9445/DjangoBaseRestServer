@@ -37,7 +37,8 @@ class InteractionPoint(ProtoBufMixin, models.Model):
 
     ID = models.IntegerField(primary_key=True, auto_created=True, editable=False, unique=True)
     Facility = models.IntegerField(choices=proto.FacilityType.items(), default=0)
-    LocalTransform = models.OneToOneField(Transform, related_name='transformposes', on_delete=models.CASCADE, null=True, blank=True)
+    # LocalTransform = models.ManyToManyField(Transform, related_name='transformposes', null=True, blank=True)
+    LocalTransform = models.ForeignKey(Transform, on_delete=models.CASCADE, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk: # new instance
