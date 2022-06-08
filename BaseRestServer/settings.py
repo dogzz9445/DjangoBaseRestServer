@@ -51,11 +51,8 @@ INSTALLED_APPS = [
     'colorfield',
     'corsheaders',
     'rest_framework',
-    'pb_model',
     
-    'scenario',
     'api',
-    'firexr',
 ]
 
 MIDDLEWARE = [
