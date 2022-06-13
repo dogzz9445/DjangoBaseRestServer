@@ -28,8 +28,6 @@ from rest_framework.authtoken import views as auth_views
 import os
 
 from api.views import *
-from scenario.views import *
-from firexr.views import *
 
 def handle_uploaded_file(filename, file):
     with open(filename, 'wb+') as destination:
