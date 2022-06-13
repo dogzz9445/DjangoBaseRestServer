@@ -68,7 +68,6 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'schedules', ScheduleViewSet)
 router.register(r'upload', UploadViewSet, basename='upload')
-router.register(r'media', UploadViewSet, basename='media')
 
 urlpatterns = [
     path('', include(router.urls)),
